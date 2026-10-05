@@ -91,12 +91,19 @@ This engine delivers a production-hardened solution combining **Hybrid Dense-Spa
 - **Sparse Indexing (BM25Okapi)**: Preserves exact alphanumeric keywords, part numbers, error codes, and compliance clauses (`SOC 2 Type II`, `AES-256`, `Tier-1 SLA`).
 - **Dense Vector Search (Qdrant)**: Encodes conceptual intent via $d$-dimensional normalized embeddings (e.g., `BAAI/bge-m3`).
 - **Reciprocal Rank Fusion (RRF)**: Merges disparate score scales dynamically:
-  $$\text{RRF Score}(d) = \sum_{m \in \{\text{dense}, \text{sparse}\}} \frac{1}{60 + r_m(d)}$$
+
+$$
+\text{RRF Score}(d) = \sum_{m \in \{\text{dense}, \text{sparse}\}} \frac{1}{60 + r_m(d)}
+$$
 
 ### 2. ColBERT Late-Interaction Token Re-ranking
-- Rather than compressing passages into a single vector, the reranker performs **MaxSim token interaction**:
-  $$S(Q, D) = \sum_{i \in Q} \max_{j \in D} (\mathbf{E}_{Q, i} \cdot \mathbf{E}_{D, j}^\top)$$
-- Maximizes semantic alignment and eliminates false-positive candidate chunks before prompt synthesis.
+Rather than compressing passages into a single vector, the reranker performs **MaxSim token interaction**:
+
+$$
+S(Q, D) = \sum_{i \in Q} \max_{j \in D} \left( \mathbf{E}_{Q, i} \cdot \mathbf{E}_{D, j}^\top \right)
+$$
+
+This maximizes semantic alignment and eliminates false-positive candidate chunks before prompt synthesis.
 
 ### 3. Autonomous Multi-Hop Reasoning State Machine
 - Inspired by LangGraph state machine principles, the agent analyzes incoming prompts, classifies whether single-shot or multi-hop retrieval is needed, and iterates through decomposed sub-queries while maintaining a structured reasoning trace.
@@ -261,5 +268,4 @@ All 12 core test suites execute in milliseconds with zero dependencies on extern
 *M.Tech in Sensors and Internet of Things, Department of Electrical Engineering*  
 *Indian Institute of Technology (IIT) Jodhpur*  
 - **Email**: [shreypainuli17@gmail.com](mailto:shreypainuli17@gmail.com) | [m25eet007@iitj.ac.in](mailto:m25eet007@iitj.ac.in)  
-- **GitHub**: [github.com/5hreyZ](https://github.com/5hreyZ)  
-- **LinkedIn**: [linkedin.com/in/shrey-painuli](https://www.linkedin.com/in/shrey-painuli/)
+- **GitHub**: [github.com/5hreyZ](https://github.com/5hreyZ)
