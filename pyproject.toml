@@ -1,0 +1,46 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "enterprise-agentic-rag-engine"
+version = "1.0.0"
+authors = [
+  { name="Shrey Painuli", email="shreypainuli17@gmail.com" },
+]
+description = "Production-grade autonomous Agentic RAG system built for multi-hop reasoning, hybrid search, and low-latency SLM serving."
+readme = "README.md"
+requires-python = ">=3.10"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+dependencies = [
+    "fastapi>=0.110.0",
+    "uvicorn>=0.28.0",
+    "pydantic>=2.6.0",
+    "qdrant-client>=1.8.0",
+    "rank-bm25>=0.2.2",
+    "sentence-transformers>=2.5.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.1.0",
+    "black>=24.2.0",
+    "flake8>=7.0.0",
+    "mypy>=1.9.0",
+]
+gpu = [
+    "torch>=2.2.0",
+    "vllm>=0.4.0",
+    "autoawq>=0.2.4",
+    "peft>=0.10.0",
+    "bitsandbytes>=0.43.0",
+]
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["enterprise_rag*"]

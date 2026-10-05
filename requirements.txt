@@ -1,0 +1,27 @@
+# Core Framework & API
+fastapi>=0.110.0
+uvicorn[standard]>=0.28.0
+pydantic>=2.6.0
+python-dotenv>=1.0.0
+
+# Retrieval & Vector Database
+qdrant-client>=1.8.0
+rank-bm25>=0.2.2
+sentence-transformers>=2.5.0
+
+# LLM Inference, Fine-Tuning & Quantization
+torch>=2.2.0
+transformers>=4.40.0
+peft>=0.10.0
+bitsandbytes>=0.43.0
+autoawq>=0.2.4
+vllm>=0.4.0
+
+# Document Ingestion & Parsers
+pypdf>=4.1.0
+pymupdf>=1.24.0
+
+# Observability & Metrics
+prometheus-client>=0.20.0
+requests>=2.31.0
+httpx>=0.27.0
